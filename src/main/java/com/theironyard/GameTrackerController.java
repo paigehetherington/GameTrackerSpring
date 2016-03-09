@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -18,6 +19,12 @@ public class GameTrackerController {
 
     @Autowired
     UserRepository users;
+
+    @PostConstruct //to run right away
+    public void init() {
+        System.out.println("Started up!");
+
+    }
 
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
