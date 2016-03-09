@@ -1,9 +1,6 @@
 package com.theironyard;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -23,7 +20,11 @@ public class Game {
 
     @Column(nullable = false)
     String genre;
+
     int releaseYear; //primitive type, can't contain null
+
+    @ManyToOne //many games to one user. many(whatever listed first) refers to class, one to user. To join user to games
+    User user;
 
     public Game() {
     }
